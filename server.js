@@ -42,6 +42,47 @@ const server = http.createServer((req, res) => {
         }
       }
 
+      if(bodyJSONid==="answer2") {
+        if(bodyJSONdata==="in the server") {
+          responseJSON.dialog = "correct!"
+          responseJSON.id = "problem3.html"
+        } else {          
+          responseJSON.dialog = "incorrect!"
+          responseJSON.id = "problem2.html"
+        }
+      }
+
+      if(bodyJSONid==="answer3") {
+        if(bodyJSONdata==="I am the answer") {
+          responseJSON.dialog = "Yes you are"
+          responseJSON.id = "problem4.html"
+        } else {          
+          responseJSON.dialog = "incorrect!"
+          responseJSON.id = "problem3.html"
+        }
+      }
+
+      if(bodyJSONid==="answer4") {
+        if(bodyJSONdata==="Heisenberg") {
+          responseJSON.dialog = "you gash damn right!"
+          responseJSON.id = "problem5.html"
+        } else {          
+          responseJSON.dialog = "you gash damn wrong!"
+          responseJSON.id = "problem4.html"
+        }
+      }
+
+      if(bodyJSONid==="answer5") {
+        if(bodyJSONdata==="Yes") {
+          responseJSON.dialog = "Hell yes he is!"
+          responseJSON.id = "qualified.html"
+        } else {          
+          responseJSON.dialog = "You damn traitor!"
+          responseJSON.id = "problem5.html"
+        }
+      }
+
+
       /** Do not go beyond this section for now */
       res.end(JSON.stringify(responseJSON))
       console.log("All Responses: " + allResponsesArray)
