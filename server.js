@@ -75,10 +75,20 @@ const server = http.createServer((req, res) => {
       if(bodyJSONid==="answer5") {
         if(bodyJSONdata==="Yes") {
           responseJSON.dialog = "Hell yes he is!"
-          responseJSON.id = "qualified.html"
+          responseJSON.id = "problem6.html"
         } else {          
           responseJSON.dialog = "You damn traitor!"
           responseJSON.id = "problem5.html"
+        }
+      }
+
+      if(bodyJSONid==="answer6") {
+        if(bodyJSONdata==="Yes") {
+          responseJSON.dialog = "Thats it"
+          responseJSON.id = "problem6.html"
+        } else {          
+          responseJSON.dialog = "Thats it"
+          responseJSON.id = "problem6.html"
         }
       }
 
@@ -108,7 +118,10 @@ const server = http.createServer((req, res) => {
         fs.createReadStream('problem4.html').pipe(res)
     } else if(url ==='/problem5.html')  {
         fs.createReadStream('problem5.html').pipe(res)
-    } else {
+    }else if(url ==='/problem6.html')  {
+      fs.createReadStream('problem6.html').pipe(res)
+  }
+     else {
         res.write('Doesn\'t exist'); 
         res.end(); 
     }
